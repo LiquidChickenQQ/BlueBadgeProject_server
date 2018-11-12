@@ -5,16 +5,16 @@ var sequelize = require('./db');
 var bodyParser = require('body-parser');
 
 /*********CONTROLLERS******* */
-var user = require('./controllers/user-controller')
-var login = require('./controllers/login-controller')
-var log = require('./controllers/log-controller')
+var user = require('./controllers/user-controller');
+var login = require('./controllers/login-controller');
+var log = require('./controllers/log-controller');
 
 
 sequelize.sync(); //////// user {force:true} when changing column or data structure
 
 app.use(bodyParser.json());
 
-app.use(require('./middleware/headers'))
+app.use(require('./middleware/headers'));
 
 /****EXPOSED****/
 app.use('/api/user', user);  // creates a user 

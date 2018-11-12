@@ -6,7 +6,6 @@ var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
 router.post('/', (req, res) => {
-    console.log(req.body);
     User.create({
     username: req.body.user.username,
     password: bcrypt.hashSync(req.body.user.password, 10)
@@ -14,7 +13,6 @@ router.post('/', (req, res) => {
     .then(
         createSuccess = (user) => {
             let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24 })
-            console.log('line 17 in user-controller');
             res.json({
                 user: user,
                 message: 'user created',

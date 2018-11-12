@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const sequelize = require('../db');
-const validateSession = require('../middleware/validate-session')
+const validateSession = require('../middleware/validate-session.js');
 const Log = sequelize.import('../models/log');
 
 /******CREATE NEW WORKOUT******/
 router.post('/', validateSession, (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
     if (!req.error) {
         let description= req.body.log.description;
         let definition = req.body.log.definition;
@@ -14,19 +14,17 @@ router.post('/', validateSession, (req, res) => {
         let thawing = req.body.log.thawing;
         let marinade = req.body.log.marinade;
         let cooling = req.body.log.cooling;
-        let owner = req.body.log.id;
+        let owner = req.body.log.id;   // changes from req.body.log.id:
 
 
-
-        Log
-            .create({
+        Log.create({
                 description: description,
                 definition: definition,
                 results: results,
                 thawing: thawing,
                 marinade: marinade,
                 owner_properties: owner,
-                cooling: req.body.log.cooling,
+                cooling: cooling,
 
             })
             .then(
@@ -43,6 +41,7 @@ router.post('/', validateSession, (req, res) => {
         res.status(500).json(error)
     }
 });
+
 
 /******GET ALL WORKOUTS******/
 router.get('/', (req, res) => {
