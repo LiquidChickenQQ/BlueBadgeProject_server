@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 var express=require('express')
 var app = express();
 var sequelize = require('./db');
@@ -30,5 +31,5 @@ app.use('/api/log', log);
 
 app.listen(process.env.PORT, () => {
     
-    console.log(`App is listening on port ${process.env.PORT}`)
+    console.log(`Server is listening on port ${process.env.PORT}`)
 });
