@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
         description: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: false
         },
         definition: {
             type: DataTypes.STRING,
@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         owner_properties: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         thawing: {

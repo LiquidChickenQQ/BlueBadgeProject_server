@@ -6,7 +6,7 @@ const Log = sequelize.import('../models/log');
 
 /******CREATE NEW WORKOUT******/
 router.post('/', validateSession, (req, res) => {
-    console.log(req.body);
+    console.log(req.body.user);
     if (!req.error) {
         let description= req.body.log.description;
         let definition = req.body.log.definition;
@@ -14,7 +14,7 @@ router.post('/', validateSession, (req, res) => {
         let thawing = req.body.log.thawing;
         let marinade = req.body.log.marinade;
         let cooling = req.body.log.cooling;
-        let owner = req.body.log.id;   // changes from req.body.log.id:
+        let owner = req.user.id;   /// changed from req.body.log.id
 
 
         Log.create({
@@ -44,8 +44,8 @@ router.post('/', validateSession, (req, res) => {
 
 
 /******GET ALL WORKOUTS******/
-router.get('/', (req, res) => {
-    Log.findAll()
+router.get('/', validateSession,(req, res) => {
+    Log.findAll({ where: { owner_properties: req.user.id } })
         .then(log => res.status(200).json(log))
         .catch(error => res.status(500).json(error))
 });
