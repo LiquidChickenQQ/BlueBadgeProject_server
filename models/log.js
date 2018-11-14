@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
         description: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: false
+            unique: true
         },
         definition: {
             type: DataTypes.STRING,
