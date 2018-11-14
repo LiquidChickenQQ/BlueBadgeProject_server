@@ -6,7 +6,7 @@ var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
 router.post('/login', function (req, res) { 
-    console.log(process.env.JWT_SECRET)
+    // console.log(process.env.JWT_SECRET)
     User.findOne( { where: { username: req.body.user.username }})
     .then(
      function(user) {

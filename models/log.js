@@ -3,19 +3,19 @@ module.exports = function (sequelize, DataTypes) {
         description: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: false
         },
         definition: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         results: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         owner_properties: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         thawing: {
             type: DataTypes.STRING,
@@ -28,7 +28,11 @@ module.exports = function (sequelize, DataTypes) {
         cooling: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        ph_test: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
 
     })
 }

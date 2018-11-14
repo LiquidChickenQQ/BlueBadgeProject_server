@@ -6,7 +6,7 @@ const sequelize = new Sequelize( process.env.DATABASE_URL,  {
 sequelize.authenticate()
     .then(
         function() {
-            console.log('connected to workoutlog');
+            console.log('connected to HACCP log');
         },
         function(err) {
             console.log(err)
