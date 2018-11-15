@@ -2,8 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     return sequelize.define('log', {
         description: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: false
+            allowNull: false
         },
         definition: {
             type: DataTypes.STRING,
@@ -11,7 +10,8 @@ module.exports = function (sequelize, DataTypes) {
         },
         results: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
+            unique: true
         },
         owner_properties: {
             type: DataTypes.INTEGER,
