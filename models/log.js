@@ -7,15 +7,15 @@ module.exports = function (sequelize, DataTypes) {
         },
         definition: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
         results: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
         },
         owner_properties: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: false
         },
         thawing: {
             type: DataTypes.STRING,
@@ -26,6 +26,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         cooling: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        packaging: {
             type: DataTypes.STRING,
             allowNull: false
         },

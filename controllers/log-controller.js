@@ -14,8 +14,10 @@ router.post('/', validateSession, (req, res) => {
         let thawing = req.body.log.thawing;
         let marinade = req.body.log.marinade;
         let cooling = req.body.log.cooling;
+        let packaging = req.body.log.packaging;
         let owner = req.user.id;   /// changed from req.body.log.id
         let ph_test = req.body.log.ph_test;
+
 
         Log.create({
                 description: description,
@@ -25,6 +27,7 @@ router.post('/', validateSession, (req, res) => {
                 marinade: marinade,
                 owner_properties: owner,
                 cooling: cooling,
+                packaging: packaging,
                 ph_test: ph_test,
 
             })
@@ -71,6 +74,7 @@ router.put('/:id', (req, res) => {
             thawing: req.body.log.thawing,
             marinade: req.body.log.marinade,
             cooling: req.body.log.cooling,
+            packaging: req.body.log.packaging,
             ph_test: req.body.log.ph_test,
 
         }, { where: { id: req.params.id } })
