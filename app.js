@@ -11,7 +11,7 @@ var login = require('./controllers/login-controller');
 var log = require('./controllers/log-controller');
 
 
-sequelize.sync({force:true}); //////// user {force:true} when changing column or data structure
+sequelize.sync(); //////// user {force:true} when changing column or data structure
 
 app.use(bodyParser.json());
 
